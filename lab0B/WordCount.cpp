@@ -29,11 +29,9 @@ void WordCount::TextParsing(const std::string &currentLine) {
 }
 
 void WordCount::AddFile(const std::string &inputName) {
-    dataContainer.clear(); //чистка старых данных
-
     std::ifstream input(inputName);
     if (!input) {
-        std::cout << "Can not open input file";
+        throw std::invalid_argument("Can not open input file");
     }
 
     std::string currentLine;
@@ -51,7 +49,7 @@ void WordCount::WriteCSV(const std::string &outputName) {
     dataContainer.clear();
     std::ofstream output(outputName);
     if (!output) {
-        std::cout << "Can not open output file";
+        throw std::invalid_argument("Can not open output file");
     }
     for (auto element = valueSort.rbegin(); element != valueSort.rend(); ++element) {
         output << element->second << ';' << element->first << ';' << element->first / (double) wordCounter * 100 << '%'

@@ -12,8 +12,8 @@ class WordCount {
         WordCount();
         void AddFile(const string &inputName);
         void WriteCSV(const string &outputName);
-        void TextParsing(const string & currentLine);
     private:
+        void TextParsing(const string & currentLine);
         map<string, int> dataContainer;
         int wordCounter = 0;
 };

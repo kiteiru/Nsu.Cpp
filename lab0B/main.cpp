@@ -7,10 +7,14 @@ int main(int argc, char *argv[]) {
         return 0;
     } else {
         WordCount obj;
-        for (int i = 1; i < argc - 1; i++) {
-            obj.AddFile(argv[i]);
+        try{
+            for (int i = 1; i < argc - 1; i++) {
+                obj.AddFile(argv[i]);
+            }
+            obj.WriteCSV(argv[argc - 1]);
+        } catch(std::exception &ex) {
+            std::cerr << "Error is caught!" << ex.what() << std::endl;
         }
-        obj.WriteCSV(argv[argc - 1]);
     }
     return 0;
 }
