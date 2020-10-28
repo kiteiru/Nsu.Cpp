@@ -46,7 +46,9 @@ void WordCount::WriteCSV(const std::string &outputName) {
     for (auto word = dataContainer.rbegin(); word != dataContainer.rend(); ++word) {
         valueSort.insert(std::pair<int, string>(word->second, word->first));
     }
-    dataContainer.clear();
+
+    dataContainer.clear(); //очистка данных
+
     std::ofstream output(outputName);
     if (!output) {
         throw std::invalid_argument("Can not open output file");
