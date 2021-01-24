@@ -1,11 +1,27 @@
 #include "Calculator.h"
-#include "Operation.h"
-#include "DetectCalculatorOperation.h"
+#include "CalculatorOperation.h"
+#include "OperationCreator.h"
 #include <sstream>
 
 void Calculator::calculate(std::istream &stream) {
-    for (std::string line; !stream.eof(); std::getline(stream, line)) {
-        std::stringstream lineStream(line);
+    std::string currentLine;
+    while(getline(stream, currentLine)) {
+        std::stringstream lineStream(currentLine);
+        std::string operationName;
+        lineStream >> operationName;
+
+        std::list<std::string> arguments;
+        std::string currentArg;
+        while (!lineStream.eof()) {
+            lineStream >> currentArg;
+            arguments.push_back(currentArg);
+        }
+        try {
+            std::unique_ptr<Calculator>
+        }
+    }
+    for (std::string currentLine; !stream.eof(); std::getline(stream, currentLine)) {
+        std::stringstream lineStream(currentLine);
         std::string command;
         lineStream >> command;
 
@@ -25,7 +41,7 @@ void Calculator::calculate(std::istream &stream) {
             args.push_back(argument);
         }
         try {
-            std::unique_ptr<Operation> operation = Factory::getFactory().getOperation(command);
+            std::unique_ptr<CalculatorOperation> operation = Factory::getFactory().getOperation(command);
             operation->run(args, context);
         }
         catch (CalledExceptions &exception) {

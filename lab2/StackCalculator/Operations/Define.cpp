@@ -1,8 +1,8 @@
 #include "Define.h"
-#include "../DetectCalculatorOperation.h"
+#include "../OperationCreator.h"
 #include "../CalledExceptions.h"
 
-namespace {DETECT_CALCULATOR_OPERATION(Define, "DEFINE")}
+namespace {REGISTER_OPERATION(Define, "DEFINE")}
 
 void Define::run(const std::list<std::string> &args, ExecutionContext &context){
     if (args.size() != 2) {

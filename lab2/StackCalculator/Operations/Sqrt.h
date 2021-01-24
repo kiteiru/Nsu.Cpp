@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../Operation.h"
+#include "../CalculatorOperation.h"
 
-class Sqrt : public Operation {
+class Sqrt : public CalculatorOperation {
 public:
     void run(const std::list<std::string> &args, ExecutionContext &context) override;
 };

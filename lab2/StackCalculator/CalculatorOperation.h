@@ -4,9 +4,8 @@
 #include <list>
 #include "ExecutionContext.h"
 
-class Operation {
+class CalculatorOperation {
 public:
     virtual void run(const std::list<std::string> &args, ExecutionContext &context) = 0;
-
-    virtual ~Operation() = default;
+    virtual ~CalculatorOperation() = default;
 };

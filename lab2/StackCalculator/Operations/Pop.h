@@ -1,6 +1,6 @@
-#include "../Operation.h"
+#include "../CalculatorOperation.h"
 
-class Pop : public Operation {
+class Pop : public CalculatorOperation {
 public:
     void run(const std::list<std::string> &args, ExecutionContext &context) override;
 };

@@ -1,8 +1,8 @@
 #include "Sum.h"
-#include "../DetectCalculatorOperation.h"
+#include "../OperationCreator.h"
 #include "../CalledExceptions.h"
 
-namespace {DETECT_CALCULATOR_OPERATION(Sum, "+")}
+namespace {REGISTER_OPERATION(Sum, "+")}
 
 void Sum::run(const std::list<std::string> &args, ExecutionContext &context) {
     if (context.SizeOfStack() != 2) {

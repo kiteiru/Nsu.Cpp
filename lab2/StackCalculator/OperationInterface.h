@@ -1,10 +1,9 @@
 #pragma once
-#include "Operation.h"
+#include "CalculatorOperation.h"
 #include <memory>
 
 class OperationInterface {
 public:
-    virtual std::unique_ptr<Operation> make() const = 0;
-
+    [[nodiscard]] virtual CalculatorOperation * make() const = 0;
     virtual ~OperationInterface() = default;
 };

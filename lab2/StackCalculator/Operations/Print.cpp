@@ -1,8 +1,8 @@
 #include "Print.h"
-#include "../DetectCalculatorOperation.h"
+#include "../OperationCreator.h"
 #include "../CalledExceptions.h"
 
-namespace {DETECT_CALCULATOR_OPERATION(Print, "PRINT")}
+namespace {REGISTER_OPERATION(Print, "PRINT")}
 
 void Print::run(const std::list<std::string> &args, ExecutionContext &context) {
     if (context.SizeOfStack() == 0) {

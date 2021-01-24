@@ -1,8 +1,8 @@
 #include "Pop.h"
-#include "../DetectCalculatorOperation.h"
+#include "../OperationCreator.h"
 #include "../CalledExceptions.h"
 
-namespace {DETECT_CALCULATOR_OPERATION(Pop, "POP")}
+namespace {REGISTER_OPERATION(Pop, "POP")}
 
 void Pop::run(const std::list<std::string> &args, ExecutionContext &context) {
     if (context.CheckStackOnEmptiness()) {
