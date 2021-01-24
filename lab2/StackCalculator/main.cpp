@@ -16,4 +16,9 @@ int main(int argc, char *argv[]) {
         std::cout << "Write commands to command prompt" << std::endl;
         calc.calculate(std::cin);
     }
+
+
+
+
+
 }
