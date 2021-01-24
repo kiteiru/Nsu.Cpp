@@ -1,44 +1,16 @@
-#pragma once
-
 #include <stack>
-#include <string>
 #include <map>
 
 class ExecutionContext {
     std::stack<double> stack;
     std::map<std::string, double> variables;
 public:
-    double getVariable(const std::string &variable) {
-        return variables.at(variable);
-    }
-
-    double top() {
-        return stack.top();
-    }
-
-    double pop() {
-        double num = stack.top();
-        stack.pop();
-        return num;
-    }
-
-    void push(double num) {
-        stack.push(num);
-    }
-
-    bool stackIsEmpty() {
-        return stack.empty();
-    }
-
-    int stackSize() {
-        return stack.size();
-    }
-
-    void addVariable(const std::string &key, double definition) {
-        variables[key] = definition;
-    }
-
-    bool variableExists(const std::string &key) {
-        return variables.find(key) != variables.end();
-    }
+    double getVariable(const std::string &variable);
+    double top();
+    double pop();
+    void push(double num);
+    bool stackIsEmpty();
+    int stackSize();
+    void addVariable(const std::string &key, double definition);
+    bool variableExists(const std::string &key);
 };
