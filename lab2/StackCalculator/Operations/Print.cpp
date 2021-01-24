@@ -2,9 +2,8 @@
 #include "../OperationMaker.h"
 #include "../Exceptions.h"
 
-class Print : public Operation {
-public:
-    void run(std::list<std::string> &args, Context &context) override {
+
+    void Print::run(const std::list<std::string> &args, Context &context) {
         if (args.empty()) {
             if (context.stackSize() == 0) {
                 throw emptyStackException("PRINT: Stack is empty");
@@ -21,6 +20,6 @@ public:
             }
         }
     }
-};
+
 
 ADD_OPERATION(Print, PRINT)

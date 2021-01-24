@@ -1,8 +1,8 @@
-//
-// Created by enji on 24.01.2021.
-//
+#pragma once
 
-#ifndef STACKCALCULATOR_SUBSTRACTION_H
-#define STACKCALCULATOR_SUBSTRACTION_H
+#include "../Operation.h"
 
-#endif //STACKCALCULATOR_SUBSTRACTION_H
+class Substraction : public Operation {
+public:
+    void run(const std::list<std::string> &args, Context &context) override;
+};

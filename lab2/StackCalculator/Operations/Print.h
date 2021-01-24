@@ -1,8 +1,8 @@
-//
-// Created by enji on 24.01.2021.
-//
+#pragma once
 
-#ifndef STACKCALCULATOR_PRINT_H
-#define STACKCALCULATOR_PRINT_H
+#include "../Operation.h"
 
-#endif //STACKCALCULATOR_PRINT_H
+class Print : public Operation {
+public:
+    void run(const std::list<std::string> &args, Context &context) override;
+};

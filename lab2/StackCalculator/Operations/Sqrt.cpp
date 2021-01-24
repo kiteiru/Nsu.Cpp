@@ -3,9 +3,7 @@
 #include "../OperationMaker.h"
 #include "../Exceptions.h"
 
-class Sqrt : public Operation {
-public:
-    void run(std::list<std::string> &args, Context &context) override {
+    void Sqrt::run(const std::list<std::string> &args, Context &context) {
         if (context.stackIsEmpty()) {
             throw badArgsException("No operand for 'SQRT'");
         }
@@ -14,6 +12,6 @@ public:
         }
         context.push(sqrt(context.pop()));
     }
-};
+
 
 ADD_OPERATION(Sqrt, SQRT)

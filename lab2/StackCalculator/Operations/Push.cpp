@@ -2,20 +2,7 @@
 #include "../OperationMaker.h"
 #include "../Exceptions.h"
 
-
-class Push : public Operation {
-private:
-    bool isNumber(const std::string &str) {
-        for (auto num : str) {
-            if (!(isdigit(num) || num == '.' || num == ',')) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-public:
-    void run(std::list<std::string> &args, Context &context) override {
+    void Push::run(const std::list<std::string> &args, Context &context) {
         if (args.empty()) {
             throw badArgsException("Not enough arguments for 'PUSH'");
         }
@@ -32,6 +19,5 @@ public:
         }
 
     }
-};
 
 ADD_OPERATION(Push, PUSH)

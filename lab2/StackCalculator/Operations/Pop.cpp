@@ -2,9 +2,8 @@
 #include "../OperationMaker.h"
 #include "../Exceptions.h"
 
-class Pop : public Operation {
-public:
-    void run( std::list<std::string> &args, Context &context) override{
+
+    void Pop::run(const std::list<std::string> &args, Context &context) {
         if (!args.empty()) {
             throw badArgsException("Too much arguments for 'POP'");
         }
@@ -13,6 +12,6 @@ public:
         }
         context.pop();
     }
-};
+
 
 ADD_OPERATION(Pop, POP)

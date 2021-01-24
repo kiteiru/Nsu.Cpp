@@ -8,7 +8,7 @@
 
 class Operation {
 public:
-    virtual void run(std::list<std::string> &args, Context &context) = 0;
+    virtual void run(const std::list<std::string> &args, Context &context) = 0;
 
     virtual ~Operation() = default;
 };

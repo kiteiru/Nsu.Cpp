@@ -2,18 +2,15 @@
 #include "../OperationMaker.h"
 #include "../Exceptions.h"
 
-class Multiplication : public Operation {
-public:
-    void run(std::list<std::string> &args, Context &context) override {
-        if (context.stackSize() < 2) {
-            throw badArgsException("Not enough operands for '*'");
-        }
-        if (!args.empty()) {
-            throw badArgsException("Too much arguments for '*'");
-        }
-        double mul = context.pop() * context.pop();
-        context.push(mul);
+void Multiplication::run(const std::list<std::string> &args, Context &context) {
+    if (context.stackSize() < 2) {
+        throw badArgsException();
     }
-};
+    if (!args.empty()) {
+        throw badArgsException();
+    }
+    double mul = context.pop() * context.pop();
+    context.push(mul);
+}
 
 ADD_OPERATION(Multiplication, *)

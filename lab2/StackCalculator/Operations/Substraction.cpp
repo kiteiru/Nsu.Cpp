@@ -2,9 +2,7 @@
 #include "../OperationMaker.h"
 #include "../Exceptions.h"
 
-class Substraction : public Operation {
-public:
-    void run(std::list<std::string> &args, Context &context) override {
+    void Substraction::run(const std::list<std::string> &args, Context &context) {
         if (context.stackSize() < 2) {
             throw badArgsException("Not enough operands for '-'");
         }
@@ -16,6 +14,6 @@ public:
         double sub = num2 - num1;
         context.push(sub);
     }
-};
+
 
 ADD_OPERATION(Substraction, -)

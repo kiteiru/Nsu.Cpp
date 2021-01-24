@@ -2,23 +2,16 @@
 #include "../OperationMaker.h"
 #include "../Exceptions.h"
 
-class Division : public Operation {
-public:
-    void run(std::list<std::string> &args, Context &context) override {
-        if (context.stackSize() < 2) {
-            throw badArgsException("Not enough operands for '/'");
-        }
-        if (!args.empty()) {
-            throw badArgsException("Too much arguments for '/'");
-        }
-        double num1 = context.pop();
-        double num2 = context.pop();
-        if (num1 == 0) {
-            std::string errorStr = std::to_string(num2) + "/" + std::to_string(num1);
-            throw divisionByZeroException( "Division by zero: "+std::to_string(num2) + "/" + std::to_string(num1));
-        }
-        context.push(num2 / num1);
-    }
-};
+namespace {ADD_OPERATION(Division, "/")}
 
-ADD_OPERATION(Division, /)
+void Division::run(const std::list<std::string> &args, Context &context) {
+    if (context.stackSize() < 2 || !args.empty()) {
+        throw badArgsException();
+    }
+    double num1 = context.pop();
+    double num2 = context.pop();
+    if (num1 == 0) {
+        throw divisionByZeroException( );
+    }
+    context.push(num2 / num1);
+}

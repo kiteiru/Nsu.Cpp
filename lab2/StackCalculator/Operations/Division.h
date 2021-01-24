@@ -1,8 +1,8 @@
-//
-// Created by enji on 24.01.2021.
-//
+#pragma once
 
-#ifndef STACKCALCULATOR_DIVISION_H
-#define STACKCALCULATOR_DIVISION_H
+#include "../Operation.h"
 
-#endif //STACKCALCULATOR_DIVISION_H
+class Division : public Operation {
+public:
+    void run(const std::list<std::string> &args, Context &context) override;
+};

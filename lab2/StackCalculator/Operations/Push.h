@@ -1,8 +1,8 @@
-//
-// Created by enji on 24.01.2021.
-//
+#pragma once
 
-#ifndef STACKCALCULATOR_PUSH_H
-#define STACKCALCULATOR_PUSH_H
+#include "../Operation.h"
 
-#endif //STACKCALCULATOR_PUSH_H
+class Push : public Operation {
+public:
+    void run(const std::list<std::string> &args, Context &context) override;
+};
