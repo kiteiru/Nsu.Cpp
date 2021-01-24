@@ -2,22 +2,17 @@
 #include "../OperationMaker.h"
 #include "../Exceptions.h"
 
-    void Push::run(const std::list<std::string> &args, Context &context) {
-        if (args.empty()) {
-            throw badArgsException("Not enough arguments for 'PUSH'");
-        }
-        if (args.size() > 1) {
-            throw badArgsException("Too much arguments for 'PUSH'");
-        }
-        std::string variable = args.back();
-        if (context.variableExists(variable)) {
-            context.push(context.getVariable(variable));
-        } else if (isNumber(variable)) {
-            context.push(stod(variable));
-        } else {
-            throw badArgsException("'" + variable + "'" + " variable not exists");
-        }
+namespace {DETECT_CALCULATOR_OPERATION(Push, "PUSH")}
 
+void Push::run(const std::list<std::string> &args, Context &context) {
+    if (args.size() > 1 || args.empty()) {
+        throw OperandException();
     }
-
-ADD_OPERATION(Push, PUSH)
+    std::string variable = args.back();
+    if (context.variableExists(variable)) {
+        context.push(context.getVariable(variable));
+    }
+    else {
+        context.push(std::stod(variable));
+    }
+}

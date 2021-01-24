@@ -2,15 +2,12 @@
 #include "../OperationMaker.h"
 #include "../Exceptions.h"
 
-void Multiplication::run(const std::list<std::string> &args, Context &context) {
-    if (context.stackSize() < 2) {
-        throw badArgsException();
-    }
-    if (!args.empty()) {
-        throw badArgsException();
-    }
-    double mul = context.pop() * context.pop();
-    context.push(mul);
-}
+namespace {DETECT_CALCULATOR_OPERATION(Multiplication, "*")}
 
-ADD_OPERATION(Multiplication, *)
+void Multiplication::run(const std::list<std::string> &args, Context &context) {
+    if (!args.empty() || context.stackSize() != 2) {
+        throw OperandException();
+    }
+    double multipleResult = context.pop() * context.pop();
+    context.push(multipleResult);
+}

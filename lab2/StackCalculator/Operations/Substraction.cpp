@@ -2,18 +2,14 @@
 #include "../OperationMaker.h"
 #include "../Exceptions.h"
 
-    void Substraction::run(const std::list<std::string> &args, Context &context) {
-        if (context.stackSize() < 2) {
-            throw badArgsException("Not enough operands for '-'");
-        }
-        if (!args.empty()) {
-            throw badArgsException("Too much arguments for '-'");
-        }
-        double num1 = context.pop();
-        double num2 = context.pop();
-        double sub = num2 - num1;
-        context.push(sub);
+namespace {DETECT_CALCULATOR_OPERATION(Substraction, "-")}
+
+void Substraction::run(const std::list<std::string> &args, Context &context) {
+    if (context.stackSize() != 2) {
+        throw OperandException();
     }
-
-
-ADD_OPERATION(Substraction, -)
+    double subtrahend = context.pop();
+    double minuend = context.pop();
+    double substractResult = minuend - subtrahend;
+    context.push(substractResult);
+}

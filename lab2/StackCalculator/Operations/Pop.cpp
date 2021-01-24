@@ -2,16 +2,14 @@
 #include "../OperationMaker.h"
 #include "../Exceptions.h"
 
+namespace {DETECT_CALCULATOR_OPERATION(Pop, "POP")}
 
-    void Pop::run(const std::list<std::string> &args, Context &context) {
-        if (!args.empty()) {
-            throw badArgsException("Too much arguments for 'POP'");
-        }
-        if (context.stackIsEmpty()) {
-            throw emptyStackException("POP: Stack is empty");
-        }
-        context.pop();
+void Pop::run(const std::list<std::string> &args, Context &context) {
+    if (!args.empty()) {
+        throw OperandException();
     }
-
-
-ADD_OPERATION(Pop, POP)
+    if (context.stackIsEmpty()) {
+        throw StackEmptinessException();
+    }
+    context.pop();
+}

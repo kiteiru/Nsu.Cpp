@@ -3,15 +3,11 @@
 #include "../OperationMaker.h"
 #include "../Exceptions.h"
 
-    void Sqrt::run(const std::list<std::string> &args, Context &context) {
-        if (context.stackIsEmpty()) {
-            throw badArgsException("No operand for 'SQRT'");
-        }
-        if (!args.empty()){
-            throw badArgsException("Too much arguments for 'SQRT'");
-        }
-        context.push(sqrt(context.pop()));
+namespace {DETECT_CALCULATOR_OPERATION(Sqrt, "SQRT")}
+
+void Sqrt::run(const std::list<std::string> &args, Context &context) {
+    if (context.stackIsEmpty()) {
+        throw StackEmptinessException();
     }
-
-
-ADD_OPERATION(Sqrt, SQRT)
+    context.push(sqrt(context.pop()));
+}

@@ -2,13 +2,13 @@
 #include "../OperationMaker.h"
 #include "../Exceptions.h"
 
+namespace {DETECT_CALCULATOR_OPERATION(Define, "DEFINE")}
+
 void Define::run(const std::list<std::string> &args, Context &context){
     if (args.size() != 2) {
-        throw badArgsException("Not enough arguments for 'DEFINE'");
+        throw OperandException();
     }
     std::string variable = args.front();
-    double value = std::stod(args.back());
-    context.addVariable(variable, value);
+    double definition = std::stod(args.back());
+    context.addVariable(variable, definition);
 }
-
-ADD_OPERATION(Define, DEFINE)

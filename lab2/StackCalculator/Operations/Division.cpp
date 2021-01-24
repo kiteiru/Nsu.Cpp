@@ -2,16 +2,17 @@
 #include "../OperationMaker.h"
 #include "../Exceptions.h"
 
-namespace {ADD_OPERATION(Division, "/")}
+namespace {DETECT_CALCULATOR_OPERATION(Division, "/")}
 
 void Division::run(const std::list<std::string> &args, Context &context) {
-    if (context.stackSize() < 2 || !args.empty()) {
-        throw badArgsException();
+    if (!args.empty() || context.stackSize() != 2) {
+        throw OperandException();
     }
-    double num1 = context.pop();
-    double num2 = context.pop();
-    if (num1 == 0) {
-        throw divisionByZeroException( );
+    double divisor = context.pop();
+    double divisible = context.pop();
+    if (divisor == 0) {
+        throw DivisionByZeroException();
     }
-    context.push(num2 / num1);
+    double divideResult = divisible / divisor;
+    context.push(divideResult);
 }

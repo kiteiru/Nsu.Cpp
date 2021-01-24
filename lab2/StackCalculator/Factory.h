@@ -23,7 +23,7 @@ public:
         auto i = operationMakers.find(operationName);
         if (i == operationMakers.end()) {
             std::string name = "'" + operationName + "'";
-            throw badOperationException("Unknown operation " + name);
+            throw OperandException();
         }
         OperationInterface *operationMaker = i->second;
         return operationMaker->make();

@@ -1,5 +1,3 @@
-#pragma once
-
 #include "../Operation.h"
 
 class Print : public Operation {

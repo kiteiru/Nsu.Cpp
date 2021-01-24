@@ -1,5 +1,3 @@
-#pragma once
-
 #include "../Operation.h"
 
 class Define : public Operation {

@@ -2,15 +2,14 @@
 #include "../OperationMaker.h"
 #include "../Exceptions.h"
 
-namespace {ADD_OPERATION(Sum, "+")}
+namespace {DETECT_CALCULATOR_OPERATION(Sum, "+")}
 
 void Sum::run(const std::list<std::string> &args, Context &context) {
-    if (context.stackSize() < 2) {
-        throw badArgsException("Not enough operands for '+'");
+    if (context.stackSize() != 2) {
+        throw OperandException();
     }
-    if (!args.empty()) {
-        throw badArgsException("Too much arguments for '+'");
-    }
-    double sum = context.pop() + context.pop();
-    context.push(sum);
+    double firstSummand = context.pop();
+    double secondSummand = context.pop();
+    double summariseResult = firstSummand + secondSummand;
+    context.push(summariseResult);
 }

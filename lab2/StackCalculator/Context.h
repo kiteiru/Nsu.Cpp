@@ -34,8 +34,8 @@ public:
         return stack.size();
     }
 
-    void addVariable(const std::string &key, double num) {
-        variables[key] = num;
+    void addVariable(const std::string &key, double definition) {
+        variables[key] = definition;
     }
 
     bool variableExists(const std::string &key) {
