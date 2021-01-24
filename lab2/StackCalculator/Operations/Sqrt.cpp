@@ -6,8 +6,8 @@
 namespace {DETECT_CALCULATOR_OPERATION(Sqrt, "SQRT")}
 
 void Sqrt::run(const std::list<std::string> &args, ExecutionContext &context) {
-    if (context.stackIsEmpty()) {
+    if (context.CheckStackOnEmptiness()) {
         throw StackEmptinessException();
     }
-    context.push(sqrt(context.pop()));
+    context.PushToStack(sqrt(context.PopFromStack()));
 }

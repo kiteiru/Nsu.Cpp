@@ -5,8 +5,8 @@
 namespace {DETECT_CALCULATOR_OPERATION(Pop, "POP")}
 
 void Pop::run(const std::list<std::string> &args, ExecutionContext &context) {
-    if (context.stackIsEmpty()) {
+    if (context.CheckStackOnEmptiness()) {
         throw StackEmptinessException();
     }
-    context.pop();
+    context.PopFromStack();
 }

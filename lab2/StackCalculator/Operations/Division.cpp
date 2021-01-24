@@ -5,14 +5,14 @@
 namespace {DETECT_CALCULATOR_OPERATION(Division, "/")}
 
 void Division::run(const std::list<std::string> &args, ExecutionContext &context) {
-    if (!args.empty() || context.stackSize() != 2) {
+    if (!args.empty() || context.SizeOfStack() != 2) {
         throw OperandException();
     }
-    double divisor = context.pop();
-    double divisible = context.pop();
+    double divisor = context.PopFromStack();
+    double divisible = context.PopFromStack();
     if (divisor == 0) {
         throw DivisionByZeroException();
     }
     double divideResult = divisible / divisor;
-    context.push(divideResult);
+    context.PushToStack(divideResult);
 }

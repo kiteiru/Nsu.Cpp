@@ -5,9 +5,9 @@
 namespace {DETECT_CALCULATOR_OPERATION(Multiplication, "*")}
 
 void Multiplication::run(const std::list<std::string> &args, ExecutionContext &context) {
-    if (!args.empty() || context.stackSize() != 2) {
+    if (!args.empty() || context.SizeOfStack() != 2) {
         throw OperandException();
     }
-    double multipleResult = context.pop() * context.pop();
-    context.push(multipleResult);
+    double multipleResult = context.PopFromStack() * context.PopFromStack();
+    context.PushToStack(multipleResult);
 }

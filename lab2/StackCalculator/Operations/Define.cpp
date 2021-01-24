@@ -10,5 +10,5 @@ void Define::run(const std::list<std::string> &args, ExecutionContext &context){
     }
     std::string variable = args.front();
     double definition = std::stod(args.back());
-    context.addVariable(variable, definition);
+    context.AddVariable(variable, definition);
 }

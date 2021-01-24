@@ -28,7 +28,7 @@ void Calculator::calculate(std::istream &stream) {
             std::unique_ptr<Operation> operation = Factory::getFactory().getOperation(command);
             operation->run(args, context);
         }
-        catch (CalculatorException &exception) {
+        catch (CalledExceptions &exception) {
             std::cout << "Exception: " << exception.what() << std::endl;
         }
     }

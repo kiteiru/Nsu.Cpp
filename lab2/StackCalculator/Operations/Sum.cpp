@@ -5,11 +5,11 @@
 namespace {DETECT_CALCULATOR_OPERATION(Sum, "+")}
 
 void Sum::run(const std::list<std::string> &args, ExecutionContext &context) {
-    if (context.stackSize() != 2) {
+    if (context.SizeOfStack() != 2) {
         throw OperandException();
     }
-    double firstSummand = context.pop();
-    double secondSummand = context.pop();
+    double firstSummand = context.PopFromStack();
+    double secondSummand = context.PopFromStack();
     double summariseResult = firstSummand + secondSummand;
-    context.push(summariseResult);
+    context.PushToStack(summariseResult);
 }

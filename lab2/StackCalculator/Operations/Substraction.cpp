@@ -5,11 +5,11 @@
 namespace {DETECT_CALCULATOR_OPERATION(Substraction, "-")}
 
 void Substraction::run(const std::list<std::string> &args, ExecutionContext &context) {
-    if (context.stackSize() != 2) {
+    if (context.SizeOfStack() != 2) {
         throw OperandException();
     }
-    double subtrahend = context.pop();
-    double minuend = context.pop();
+    double subtrahend = context.PopFromStack();
+    double minuend = context.PopFromStack();
     double substractResult = minuend - subtrahend;
-    context.push(substractResult);
+    context.PushToStack(substractResult);
 }

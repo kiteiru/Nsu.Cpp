@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Operation.h"
 #include "OperationInterface.h"
 #include "DetectCalculatorOperation.h"

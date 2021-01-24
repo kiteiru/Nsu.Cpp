@@ -1,12 +1,19 @@
+#pragma once
 #include <exception>
 #include <utility>
 
-class CalledException : public std::exception {
+class CalledExceptions : public std::exception {
 public:
     const char *what() const noexcept override = 0;
 };
 
-class OperationException : public CalledException {
+class CanNotOpenFileException : public CalledExceptions {
+    const char *what() const noexcept override {
+        return "WARNING: can not open file!";
+    }
+};
+
+class OperationException : public CalledExceptions {
     const char *what() const noexcept override {
         return "WARNING: operation exception!";
     }

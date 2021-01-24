@@ -9,10 +9,10 @@ void Push::run(const std::list<std::string> &args, ExecutionContext &context) {
         throw OperandException();
     }
     std::string variable = args.back();
-    if (context.variableExists(variable)) {
-        context.push(context.getVariable(variable));
+    if (context.CheckOnVariableExistence(variable)) {
+        context.PushToStack(context.GetVariable(variable));
     }
     else {
-        context.push(std::stod(variable));
+        context.PushToStack(std::stod(variable));
     }
 }
