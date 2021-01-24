@@ -1,0 +1,8 @@
+//
+// Created by enji on 24.01.2021.
+//
+
+#ifndef STACKCALCULATOR_DIVISION_H
+#define STACKCALCULATOR_DIVISION_H
+
+#endif //STACKCALCULATOR_DIVISION_H

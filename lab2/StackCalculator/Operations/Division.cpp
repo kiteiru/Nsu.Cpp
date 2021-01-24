@@ -1,8 +1,8 @@
-#include "../Operation.h"
+#include "Division.h"
 #include "../OperationMaker.h"
 #include "../Exceptions.h"
 
-class Div : public Operation {
+class Division : public Operation {
 public:
     void run(std::list<std::string> &args, Context &context) override {
         if (context.stackSize() < 2) {
@@ -21,4 +21,4 @@ public:
     }
 };
 
-ADD_OPERATION(Div, /)
+ADD_OPERATION(Division, /)

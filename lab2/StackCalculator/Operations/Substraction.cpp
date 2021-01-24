@@ -1,8 +1,8 @@
-#include "../Operation.h"
+#include "Substraction.h"
 #include "../OperationMaker.h"
 #include "../Exceptions.h"
 
-class Sub : public Operation {
+class Substraction : public Operation {
 public:
     void run(std::list<std::string> &args, Context &context) override {
         if (context.stackSize() < 2) {
@@ -18,4 +18,4 @@ public:
     }
 };
 
-ADD_OPERATION(Sub, -)
+ADD_OPERATION(Substraction, -)

@@ -1,0 +1,8 @@
+//
+// Created by enji on 24.01.2021.
+//
+
+#ifndef STACKCALCULATOR_DEFINE_H
+#define STACKCALCULATOR_DEFINE_H
+
+#endif //STACKCALCULATOR_DEFINE_H

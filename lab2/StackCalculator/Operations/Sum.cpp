@@ -1,4 +1,4 @@
-#include "../Operation.h"
+#include "Sum.h"
 #include "../OperationMaker.h"
 #include "../Exceptions.h"
 

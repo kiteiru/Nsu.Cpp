@@ -1,8 +1,8 @@
-#include "../Operation.h"
+#include "Multiplication.h"
 #include "../OperationMaker.h"
 #include "../Exceptions.h"
 
-class Mul : public Operation {
+class Multiplication : public Operation {
 public:
     void run(std::list<std::string> &args, Context &context) override {
         if (context.stackSize() < 2) {
@@ -16,4 +16,4 @@ public:
     }
 };
 
-ADD_OPERATION(Mul, *)
+ADD_OPERATION(Multiplication, *)
