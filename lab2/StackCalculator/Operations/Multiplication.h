@@ -2,5 +2,5 @@
 
 class Multiplication : public Operation {
 public:
-    void run(const std::list<std::string> &args, Context &context) override;
+    void run(const std::list<std::string> &args, ExecutionContext &context) override;
 };

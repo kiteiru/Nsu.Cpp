@@ -4,7 +4,7 @@
 #include <string>
 #include <map>
 
-class Context {
+class ExecutionContext {
     std::stack<double> stack;
     std::map<std::string, double> variables;
 public:

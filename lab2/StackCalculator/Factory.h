@@ -2,8 +2,8 @@
 
 #include "Operation.h"
 #include "OperationInterface.h"
-#include "OperationMaker.h"
-#include "Exceptions.h"
+#include "DetectCalculatorOperation.h"
+#include "CalledExceptions.h"
 
 class Factory {
 private:

@@ -1,10 +1,10 @@
 #include "Sum.h"
-#include "../OperationMaker.h"
-#include "../Exceptions.h"
+#include "../DetectCalculatorOperation.h"
+#include "../CalledExceptions.h"
 
 namespace {DETECT_CALCULATOR_OPERATION(Sum, "+")}
 
-void Sum::run(const std::list<std::string> &args, Context &context) {
+void Sum::run(const std::list<std::string> &args, ExecutionContext &context) {
     if (context.stackSize() != 2) {
         throw OperandException();
     }

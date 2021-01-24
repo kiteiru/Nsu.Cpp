@@ -1,10 +1,10 @@
 #pragma once
 
-#include "Context.h"
+#include "ExecutionContext.h"
 
 class Calculator {
 private:
-    Context context;
+    ExecutionContext context;
 public:
     Calculator() = default;
 

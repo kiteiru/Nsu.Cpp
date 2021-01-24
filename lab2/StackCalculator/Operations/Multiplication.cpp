@@ -1,10 +1,10 @@
 #include "Multiplication.h"
-#include "../OperationMaker.h"
-#include "../Exceptions.h"
+#include "../DetectCalculatorOperation.h"
+#include "../CalledExceptions.h"
 
 namespace {DETECT_CALCULATOR_OPERATION(Multiplication, "*")}
 
-void Multiplication::run(const std::list<std::string> &args, Context &context) {
+void Multiplication::run(const std::list<std::string> &args, ExecutionContext &context) {
     if (!args.empty() || context.stackSize() != 2) {
         throw OperandException();
     }

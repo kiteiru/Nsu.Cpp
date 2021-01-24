@@ -1,10 +1,10 @@
 #include "Substraction.h"
-#include "../OperationMaker.h"
-#include "../Exceptions.h"
+#include "../DetectCalculatorOperation.h"
+#include "../CalledExceptions.h"
 
 namespace {DETECT_CALCULATOR_OPERATION(Substraction, "-")}
 
-void Substraction::run(const std::list<std::string> &args, Context &context) {
+void Substraction::run(const std::list<std::string> &args, ExecutionContext &context) {
     if (context.stackSize() != 2) {
         throw OperandException();
     }

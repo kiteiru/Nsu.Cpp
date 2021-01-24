@@ -1,11 +1,11 @@
 #include "Push.h"
-#include "../OperationMaker.h"
-#include "../Exceptions.h"
+#include "../DetectCalculatorOperation.h"
+#include "../CalledExceptions.h"
 
 namespace {DETECT_CALCULATOR_OPERATION(Push, "PUSH")}
 
-void Push::run(const std::list<std::string> &args, Context &context) {
-    if (args.size() > 1 || args.empty()) {
+void Push::run(const std::list<std::string> &args, ExecutionContext &context) {
+    if (args.size() != 1) {
         throw OperandException();
     }
     std::string variable = args.back();

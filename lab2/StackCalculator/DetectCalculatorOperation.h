@@ -1,3 +1,4 @@
+#pragma once
 #include "OperationInterface.h"
 #include "Factory.h"
 
@@ -6,12 +7,11 @@
 template<typename T>
 class DetectCalculatorOperation : public OperationInterface {
 public:
+    DetectCalculatorOperation(const std::string &name) {
+        Factory::getFactory().addMaker(name, this);
+    }
     virtual std::unique_ptr<Operation> make() const override {
         std::unique_ptr<Operation> ptr(new T());
         return ptr;
-    }
-
-    explicit DetectCalculatorOperation(const std::string &name) {
-        Factory::getFactory().addMaker(name, this);
     }
 };
