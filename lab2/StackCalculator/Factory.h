@@ -1,13 +1,13 @@
 #pragma once
 #include "CalculatorOperation.h"
-#include "OperationInterface.h"
 #include "OperationCreator.h"
+#include "OperationCreatorImpl.h"
 #include "CalledExceptions.h"
 
 class Factory {
 private:
     Factory() = default;
-    std::map<std::string, OperationInterface*> operationMakers;
+    std::map<std::string, OperationCreator*> operationMakers;
 public:
     Factory(const Factory &) = delete;
 
@@ -21,11 +21,11 @@ public:
         if (i == operationMakers.end()) {
             throw OperandException();
         }
-        OperationInterface* operationMaker = i->second;
+        OperationCreator* operationMaker = i->second;
         return std::unique_ptr<CalculatorOperation>(operationMaker->make());
     }
 
-    void RegisterMaker(const std::string &key, OperationInterface* maker) {
+    void RegisterMaker(const std::string &key, OperationCreator* maker) {
         operationMakers[key] = maker;
     }
 };

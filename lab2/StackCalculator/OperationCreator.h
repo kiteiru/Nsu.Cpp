@@ -1,16 +1,9 @@
 #pragma once
-#include "OperationInterface.h"
-#include "Factory.h"
+#include "CalculatorOperation.h"
+#include <memory>
 
-#define REGISTER_OPERATION(T, NAME) static OperationCreator<T> maker(NAME);
-
-template<typename T>
-class OperationCreator : public OperationInterface {
+class OperationCreator {
 public:
-    OperationCreator(const std::string &name) {
-        Factory::getInstance().RegisterMaker(name, this);
-    }
-    [[nodiscard]] virtual CalculatorOperation * make() const {
-        return new T();
-    }
+    [[nodiscard]] virtual CalculatorOperation * make() const = 0;
+    virtual ~OperationCreator() = default;
 };

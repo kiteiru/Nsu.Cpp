@@ -1,6 +1,6 @@
 #include "Calculator.h"
 #include "CalculatorOperation.h"
-#include "OperationCreator.h"
+#include "OperationCreatorImpl.h"
 #include <sstream>
 
 void Calculator::calculate(std::istream &stream) {
