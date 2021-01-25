@@ -12,13 +12,15 @@ void Average::run(const std::list<std::string> &args, ExecutionContext &context)
     if (integerArgs > context.SizeOfStack()) {
         throw ImpossibleToFindAverage();
     }
-    double average = 0;
-    int amountOfElements = integerArgs;
-    while(amountOfElements != 0) {
-        average += context.PopFromStack();
-        amountOfElements--;
+    else {
+        double average = 0;
+        int amountOfElements = integerArgs;
+        while(amountOfElements != 0) {
+            average += context.PopFromStack();
+            amountOfElements--;
+        }
+        average /= integerArgs;
+        context.PushToStack(average);
     }
-    average /= integerArgs;
-    context.PushToStack(average);
 }
 
