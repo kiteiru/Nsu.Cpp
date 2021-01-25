@@ -5,7 +5,7 @@
 namespace {REGISTER_OPERATION(Sum, "+")}
 
 void Sum::run(const std::list<std::string> &args, ExecutionContext &context) {
-    if (context.SizeOfStack() != 2) {
+    if (context.SizeOfStack() < 2) {
         throw OperandException();
     }
     double firstSummand = context.PopFromStack();

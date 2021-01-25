@@ -5,7 +5,7 @@
 namespace {REGISTER_OPERATION(Substraction, "-")}
 
 void Substraction::run(const std::list<std::string> &args, ExecutionContext &context) {
-    if (context.SizeOfStack() != 2) {
+    if (context.SizeOfStack() < 2) {
         throw OperandException();
     }
     double subtrahend = context.PopFromStack();

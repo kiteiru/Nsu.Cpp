@@ -25,6 +25,19 @@ class OperandException : public OperationException {
     }
 };
 
+class BadArgumentsException : public OperationException {
+    const char *what() const noexcept override {
+        return "WARNING: operand exception!";
+    }
+};
+
+class ImpossibleToFindAverage : public CalledExceptions {
+    const char *what() const noexcept override {
+        return "WARNING: amount of elements is bigger then elements in stack!";
+    }
+};
+
+
 class StackEmptinessException: public OperandException{
     const char *what() const noexcept override {
         return "WARNING: stack emptiness exception!";
