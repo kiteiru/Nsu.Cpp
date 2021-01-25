@@ -18,7 +18,7 @@ void Calculator::calculate(std::istream &stream) {
             arguments.push_back(currentArg);
         }
         try {
-            std::unique_ptr<CalculatorOperation> operation = Factory::getFactory().getOperation(command);
+            std::unique_ptr<CalculatorOperation> operation = Factory::getInstance().getOperation(command);
             operation->run(args, context);
         }
         catch (CalledExceptions &exception) {
