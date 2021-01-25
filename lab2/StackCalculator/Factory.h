@@ -16,7 +16,7 @@ public:
         return factory;
     }
 
-    [[nodiscard]] std::unique_ptr<CalculatorOperation> getOperation(std::string &operationName) const {
+    [[nodiscard]] std::unique_ptr<CalculatorOperation> operationGetting(std::string &operationName) const {
         auto i = operationMakers.find(operationName);
         if (i == operationMakers.end()) {
             throw OperationException();
