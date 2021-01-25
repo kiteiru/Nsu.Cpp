@@ -10,7 +10,6 @@ void Calculator::calculate(std::istream &stream) {
         std::stringstream lineStream(currentLine);
         std::string operationName;
         lineStream >> operationName;
-
         std::list<std::string> arguments;
         std::string currentArg;
         while (!lineStream.eof()) {
