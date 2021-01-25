@@ -1,4 +1,4 @@
-#include "Define.h"
+#include "Average.h"
 #include "../OperationCreatorImpl.h"
 #include "../CalledExceptions.h"
 
@@ -8,7 +8,7 @@ void Average::run(const std::list<std::string> &args, ExecutionContext &context)
     if (args.size() != 1) {
         throw BadArgumentsException();
     }
-    int integerArgs = stoi(args);
+    int integerArgs = stoi(args.front());
     if (integerArgs > context.SizeOfStack()) {
         throw ImpossibleToFindAverage();
     }
