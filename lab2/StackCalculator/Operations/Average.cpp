@@ -21,3 +21,4 @@ void Average::run(const std::list<std::string> &args, ExecutionContext &context)
     average /= integerArgs;
     context.PushToStack(average);
 }
+
