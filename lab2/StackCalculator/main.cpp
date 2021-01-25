@@ -5,7 +5,6 @@
 
 int main(int argc, char *argv[]) {
     Calculator calculator;
-
     if (argc == 2) {
         std::ifstream input;
         input.open(argv[1]);
