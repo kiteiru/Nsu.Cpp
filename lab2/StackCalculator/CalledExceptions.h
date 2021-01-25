@@ -27,7 +27,7 @@ class OperandException : public OperationException {
 
 class BadArgumentsException : public OperationException {
     const char *what() const noexcept override {
-        return "WARNING: operand exception!";
+        return "WARNING: bad arguments exception!";
     }
 };
 
