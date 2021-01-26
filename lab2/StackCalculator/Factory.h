@@ -1,4 +1,5 @@
 #pragma once
+#include <memory>
 #include "CalculatorOperation.h"
 #include "OperationCreator.h"
 #include "OperationCreatorImpl.h"
